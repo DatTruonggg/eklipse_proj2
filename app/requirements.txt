@@ -1,0 +1,6 @@
+fastapi
+torch
+uvicorn
+transformers
+loguru
+accelerate
