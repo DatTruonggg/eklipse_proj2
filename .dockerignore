@@ -1,0 +1,135 @@
+# =====================
+# .dockerignore
+# =====================
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore config caches
+*.yaml~
+*.yml~
+
+# Ignore environment files
+.env
+*.env
+# =====================
+# .dockerignore
+# =====================
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore config caches
+*.yaml~
+*.yml~
+
+# Ignore environment files
+.env
+*.env
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore docker internal
+Dockerfile
+Dockerfile.*
+docker-compose.yaml
+docker-compose-*.yaml
+
+# Ignore IDE/editor folders
+.vscode/
+.idea/
+*.swp
+
+# Ignore dataset or large files
+dataset/
+data/
+*.tar.gz
+*.zip
+
+# Ignore Git
+.git/
+.gitignore
+
+# Ignore monitoring files
+monitoring/
+# =====================
+# .dockerignore
+# =====================
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+ __pycache__
+# Ignore config caches
+*.yaml~
+*.yml~
+
+# Ignore environment files
+.env
+*.env
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore docker internal
+Dockerfile
+Dockerfile.*
+docker-compose.yaml
+docker-compose-*.yaml
+
+# Ignore IDE/editor folders
+.vscode/
+.idea/
+*.swp
+
+# Ignore dataset or large files
+dataset/
+data/
+*.tar.gz
+*.zip
+
+# Ignore Git
+.git/
+.gitignore
+
+# Ignore monitoring files
+monitoring/
+assets/
+# Ignore logs
+logs/
+*.log
+
+# Ignore docker internal
+Dockerfile
+Dockerfile.*
+docker-compose.yaml
+docker-compose-*.yaml
+
+# Ignore IDE/editor folders
+.vscode/
+.idea/
+*.swp
+
+# Ignore dataset or large files
+dataset/
+data/
+*.tar.gz
+*.zip
+
+# Ignore Git
+.git/
+.gitignore
+
+# Ignore monitoring files
+monitoring/
