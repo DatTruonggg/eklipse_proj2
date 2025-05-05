@@ -35,12 +35,6 @@ The model is served through a RESTful API with `/chat/completions` POST endpoint
 
 ---
 
-![alt text](/assets/prometheus-targer.png)
-
-![alt text](image.png)
-
----
-
 ## Quick Run
 
 ### Setup 
@@ -96,6 +90,11 @@ make docker-all
 
 - FastUI
 ![alt text](/assets/fastapi.png)
+
+
+- Prometheus UI with `/targets` endpoint:
+
+![alt text](/assets/prometheus-targer.png)
 
 - Prometheus UI with `/query` endpoint:
 
