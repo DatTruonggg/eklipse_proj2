@@ -22,6 +22,9 @@ install:
 run-app:
 	uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
 
+docker-all:
+	docker compose -f docker/docker-compose-app.yaml up --build
+
 # =====================
 # Combo commands
 # =====================
