@@ -10,7 +10,8 @@ from app.core.model_loader import load_model, load_embedder, ml_models, embed_mo
 from app.configs import config
 
 from huggingface_hub import login
-
+from prometheus_fastapi_instrumentator import Instrumentator
+from app.logs import log
 # =====================
 # App Lifespan: Startup & Shutdown Hooks
 # =====================
@@ -21,12 +22,12 @@ async def lifespan(app: FastAPI):
     Handles startup and shutdown events for the FastAPI app.
     """
     # Startup
-    print("[INFO] Starting LLM service...")
+    log.info("[INFO] Starting LLM service...")
 
     # 1. Login to HuggingFace Hub
     if config.huggingface_key and config.huggingface_key != "your_huggingface_token_here": # in config.yaml file
         login(token=config.huggingface_key)
-        print("[INFO] Huggingface login successful.")
+        log.info("[INFO] Huggingface login successful.")
 
     # 2. Load main LLM model
     load_model(config.model_name)
@@ -34,13 +35,13 @@ async def lifespan(app: FastAPI):
     # 3. Load embedding model
     load_embedder(config.embedding_model)
 
-    print("[INFO] Models loaded successfully.")
+    log.info("[INFO] Models loaded successfully.")
     yield
 
     # Shutdown
     ml_models.clear()
     embed_models.clear()
-    print("[INFO] All models cleared. Service shutdown complete.")
+    log.info("[INFO] All models cleared. Service shutdown complete.")
 
 # =====================
 # Initialize FastAPI App
@@ -56,6 +57,7 @@ app = FastAPI(
 # =====================
 # Include Routers
 # =====================
+Instrumentator().instrument(app).expose(app)
 
 app.include_router(chat.router)
 app.include_router(embedding.router)
@@ -66,4 +68,4 @@ app.include_router(embedding.router)
 
 @app.get("/", tags=["Root"])
 async def root():
-    return {"message": "Welcome to Eklipse LLM API server 🚀"}
+    return {"message": "Welcome to Eklipse LLM API server"}

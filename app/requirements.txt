@@ -4,3 +4,7 @@ uvicorn
 transformers
 loguru
 accelerate
+prometheus-fastapi-instrumentator
+prometheus_client
+requests
+optimum[onnxruntime]
