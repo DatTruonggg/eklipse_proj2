@@ -1,0 +1,16 @@
+logging_file: "./logs/logging_file.log"
+
+model_name: "bigscience/bloomz-1b1"
+embedding_model: "BAAI/llm-embedder"
+
+llm_service: "http://localhost:8001"
+max_token: 512
+device: "cpu" #cuda or cpu
+do_sample: true
+skip_special_tokens: true
+temperature: 0.1
+top_p: 0.95
+frequency_penalty: 0.1
+stream: False
+
+huggingface_key: "YOUR HUGGING FACE KEY"
