@@ -2,8 +2,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModel
 from app.configs import config
 from app.logs import log
 
-from ..core.model_registry import ModelRegistry
-
+from app.core.model_registry import ModelRegistry
+import torch
 # =====================
 # Initialize Registries
 # =====================
@@ -14,7 +14,7 @@ embed_models = ModelRegistry()
 # Load Language Model (LLM)
 # =====================
 
-def load_model(model_name: str = config.model_name):
+def load_model(model_name: str = config.model_name, ):
     """
     Load a language generation model and its tokenizer into memory.
 
@@ -24,13 +24,12 @@ def load_model(model_name: str = config.model_name):
     Returns:
         None
     """
-    print(f"[INFO] Loading LLM model: {model_name}...")
+    log.info(f"[INFO] Loading LLM model: {model_name}...")
 
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        device_map="auto",          
-        torch_dtype="auto",
+        torch_dtype=torch.float32,
         trust_remote_code=True
     )
     model.eval()

@@ -1,7 +1,3 @@
-# =====================
-# app/core/generate_response.py
-# =====================
-
 from threading import Thread
 from typing import Generator, List, Union
 from transformers import TextIteratorStreamer
